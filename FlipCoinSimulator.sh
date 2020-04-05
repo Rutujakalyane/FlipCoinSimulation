@@ -3,8 +3,8 @@ head=0
 tail=0
 for (( i=0; i<$num; i++ ))
 do
-        flip=$(( RANDOM%2))
-        if [ $flip -eq 1 ]
+        coin=$(( RANDOM%2))
+        if [ $coin -eq 1 ]
         then
                 ((head++))
         else
