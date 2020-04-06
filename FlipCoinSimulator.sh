@@ -1,44 +1,70 @@
 read -p "Enter the number of times coin flipped - " num
-hh=0
-ht=0
-th=0
-hh=0
+hhh=0
+htt=0
+tht=0
+hht=0
+thh=0
+hth=0
+tth=0
+ttt=0
 for (( i=0; i<$num; i++ ))
 do
-        coin1=$(( RANDOM%2))
-        coin2=$(( RANDOM%2))
-
-        if [[ $coin1 -eq 1 && $coin2 -eq 1 ]]
-        then
-                ((hh++))
-        elif [[ $coin1 -eq 1 && $coin2 -eq 0 ]]
-        then
-                ((ht++))
-        elif [[ $coin1 -eq 0 && $coin2 -eq 1 ]]
-        then
-                ((th++))
-        else    
-                ((tt++))
-        fi
+    coins=$(( RANDOM%8))
+      case $coins in
+					0 )
+						((hhh++)) ;;
+					1 )
+						((htt++)) ;;
+					2 )
+						((tht++)) ;;
+					3 )
+						((hht++)) ;;
+					4 )
+						((thh++)) ;;
+					5 )
+						((tth++)) ;;
+					6 )
+						((hth++)) ;;
+					7 )
+						((ttt++)) ;;
+					* )
+						echo "Default" ;;
+		esac
 done
 declare -A coin
-coin[HH]=$hh
-coin[HT]=$ht
-coin[TH]=$th
-coin[TT]=$tt
-        echo "Coin Signs-" ${!coin[@]}
-        echo "Coin Values-" ${coin[@]}
-hh1=$(($hh*100))
-hhPercent=$(( $hh1/$num ))
-ht1=$(($ht*100))
-htPercent=$(( $ht1/$num ))
-th1=$(($th*100))
-thPercent=$(( $th1/$num ))
-tt1=$(($tt*100))
-ttPercent=$(( $tt1/$num ))
+ coin[HHH]=$hhh
+ coin[HTT]=$htt
+ coin[THT]=$tht  
+ coin[HHT]=$hht
+ coin[THH]=$thh
+ coin[TTH]=$tth
+ coin[HTH]=$hth  
+ coin[TTT]=$ttt
+	echo "Coin Signs-" ${!coin[@]}
+	echo "Coin Values-" ${coin[@]} 
+hhh1=$(($hhh*100))
+hhhPercent=$(( $hhh1/$num ))
+htt1=$(($htt*100))
+httPercent=$(( $htt1/$num ))
+tht1=$(($tht*100))
+thtPercent=$(( $tht1/$num ))
+hht1=$(($hht*100))
+hhtPercent=$(( $htt1/$num ))
+thh1=$(($thh*100))
+thhPercent=$(( $thh1/$num ))
+tth1=$(($tth*100))
+tthPercent=$(( $tth1/$num ))
+hth1=$(($hth*100))
+hthPercent=$(( $hth1/$num ))
+ttt1=$(($ttt*100))
+tttPercent=$(( $ttt1/$num ))
+echo "HHH Percentage- $hhhPercent"
+echo "HTH Percentage- $hthPercent"
+echo "THT Percentage- $thtPercent"
+echo "HTT Percentage- $httPercent"
+echo "HHT Percentage- $hhtPercent"
+echo "TTH Percentage- $tthPercent"
+echo "THH Percentage- $thhPercent"
+echo "TTT Percentage- $tttPercent"
 
-echo "HH Percentage- $hhPercent"
-echo "HT Percentage- $htPercent"
-echo "TH Percentage- $thPercent"
-echo "TT Percentage- $ttPercent"
 
