@@ -1,3 +1,4 @@
+#!/bin/bash -x
 read -p "Enter the number of times coin flipped - " num
 hhh=0
 htt=0
